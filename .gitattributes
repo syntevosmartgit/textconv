@@ -1,1 +1,2 @@
 pdf-conv.pdf diff=pdf
+*.docx diff=docx
