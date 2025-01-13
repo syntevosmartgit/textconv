@@ -35,9 +35,13 @@ Using [markitdown](https://github.com/microsoft/markitdown), various file format
 
 1. **Install Python**  
     Ensure Python is installed and available in your system's PATH.
+    e.g for Windows: https://docs.python.org/3/using/windows.html
     
 2. **Install MarkItDown**  
     Install MarkItDown using the instructions from the [markitdown repository](https://github.com/microsoft/markitdown).
+	e.g. via `pip install markitdown` 
+	Test if you can run markitdown from a console in your repository.
+	`markitdown mypdf.pdf`
     
 3. **Configure Git**  
     Use the following commands to set up the `textconv` configuration for `.docx` files:
