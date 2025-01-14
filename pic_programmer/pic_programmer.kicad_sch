@@ -5110,7 +5110,7 @@
 				)
 			)
 		)
-		(property "Value" "DB9-MALE"
+		(property "Value" "DB9-FEMAL"
 			(at 31.75 77.47 0)
 			(effects
 				(font
