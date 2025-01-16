@@ -1,7 +1,8 @@
 
 # textconv Diff Demo with SmartGit
 
-This repository demonstrates how to use Git's `textconv` feature to compare the content of Office documents (using [markitdown](https://github.com/microsoft/markitdown)) and PDF files (using [pdftotext](https://www.xpdfreader.com/pdftotext-man.html)) directly within [SmartGit](https://www.syntevo.com/smartgit/). The Idea is to convert the content of binary files to a plain-text or markdown representation and then use SmartGit's built in diff to visualize the changes in the binaries.
+This repository demonstrates how to use Git's `textconv` feature to compare the content of Office documents (using [markitdown](https://github.com/microsoft/markitdown)) and PDF files (using [pdftotext](https://www.xpdfreader.com/pdftotext-man.html)) directly within [SmartGit](https://www.syntevo.com/smartgit/). The Idea is to convert the content of binary files to a plain-text or markdown representation and then use SmartGit's built in diff to visualize the changes in the binaries. 
+We also have a JSON example that shows how this can be used to make files like JSON or XML easier to diff.
 
 This approach can also be extended to other binary files, such as using `exif` for image files, to enable effective diffing.
 
@@ -59,6 +60,25 @@ This repository includes a preconfigured `.gitattributes` file for convenience.
 
 ---
 
+## Setting Up textconv with a JSON formatter
+
+Our JSON Example assumes Python is on the machine and in the PATH like for markitdown.
+To enable `textconv` for JSON, update your local `.git/config` file with the following lines:
+
+```ini
+[diff "json"]
+    textconv = python -m json.tool
+```
+
+Alternatively, you can achieve the same configuration using the Git CLI:
+
+```sh
+git config set diff.json.textconv 'python -m json.tool'
+```
+
+
+---
+
 ## Example `.gitattributes` Configuration
 
 To enable `textconv` for specific file types in your repository, define them in your `.gitattributes` file. For example:
@@ -66,9 +86,10 @@ To enable `textconv` for specific file types in your repository, define them in 
 ```gitattributes
 pdf-conv.pdf diff=pdf
 *.docx diff=docx
+*.json diff=json
 ```
 
-This configuration ensures that the specified files (`.pdf` and `.docx`) are processed using the appropriate converters (`pdftotext` and `markitdown`, respectively).
+This configuration ensures that the specified files (`.pdf` ,`.docx` and `.json`) are processed using the appropriate converters (`pdftotext` ,`markitdown` and `json.tool`, respectively).
 
 ---
 
