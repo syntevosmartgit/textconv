@@ -1,3 +1,4 @@
 pdf-conv.pdf diff=pdf
 *.docx diff=docx
 *.json diff=json
+*.xlsx diff=xlsx

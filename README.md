@@ -50,6 +50,8 @@ Using [markitdown](https://github.com/microsoft/markitdown), various file format
     ```sh
     git config set diff.docx.textconv markitdown
     git config set diff.docx.cachetextconv true
+    git config set diff.xlsx.textconv markitdown
+    git config set diff.xlsx.cachetextconv true
     ```
     
 4. **Update `.gitattributes`**  
@@ -87,6 +89,7 @@ To enable `textconv` for specific file types in your repository, define them in 
 pdf-conv.pdf diff=pdf
 *.docx diff=docx
 *.json diff=json
+*.xlsx diff=xlsx
 ```
 
 This configuration ensures that the specified files (`.pdf` ,`.docx` and `.json`) are processed using the appropriate converters (`pdftotext` ,`markitdown` and `json.tool`, respectively).
