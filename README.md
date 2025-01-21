@@ -1,7 +1,7 @@
 
 # textconv Diff Demo with SmartGit
 
-This repository demonstrates how to use Git's `textconv` feature to compare the content of Office documents (using [markitdown](https://github.com/microsoft/markitdown)) and PDF files (using [pdftotext](https://www.xpdfreader.com/pdftotext-man.html)) directly within [SmartGit](https://www.syntevo.com/smartgit/). The Idea is to convert the content of binary files to a plain-text or markdown representation and then use SmartGit's built in diff to visualize the changes in the binaries. 
+This repository demonstrates how to use Git's `textconv` feature to compare the content of Office documents (using [markitdown](https://github.com/microsoft/markitdown)) and PDF files (using [pdftotext](https://www.xpdfreader.com/pdftotext-man.html)) directly within [SmartGit](https://www.syntevo.com/smartgit/). The Idea is to convert the content of binary files to a plain-text or markdown representation and then use SmartGit's built in diff to visualize the changes in the binaries.  
 We also have a JSON example that shows how this can be used to make files like JSON or XML easier to diff.
 
 This approach can also be extended to other binary files, such as using `exif` for image files, to enable effective diffing.
@@ -32,7 +32,8 @@ git config set diff.pdf.textconv 'sh -c ''pdftotext -layout -enc UTF-8 "$0" -'''
 
 ## Setting Up textconv for Office Documents and Others
 
-Using [markitdown](https://github.com/microsoft/markitdown), various file formats (e.g., `.docx`) can be converted to Markdown for diffing. Below are the setup steps:
+Diffing the content's of  Microsoft Excel and Microsoft Word files is the logical next step.
+Using [markitdown](https://github.com/microsoft/markitdown), various file formats (e.g., `.docx`, `.xlsx`) can be converted to Markdown for diffing. Below are the setup steps:
 
 1. **Install Python**  
     Ensure Python is installed and available in your system's PATH.
@@ -45,7 +46,7 @@ Using [markitdown](https://github.com/microsoft/markitdown), various file format
 	`markitdown mypdf.pdf`
     
 3. **Configure Git**  
-    Use the following commands to set up the `textconv` configuration for `.docx` files:
+    Use the following commands to set up the `textconv` configuration for `.docx` and `.xlsx` files:
     
     ```sh
     git config set diff.docx.textconv markitdown
@@ -59,6 +60,10 @@ Using [markitdown](https://github.com/microsoft/markitdown), various file format
     
 
 This repository includes a preconfigured `.gitattributes` file for convenience.
+
+A sample SmartGit Screenshot with changes in an Excel file.
+
+![A sample SmartGit Screenshot with changes in an Excel file.](Images/SmartGitDiffExcel.png)
 
 ---
 
