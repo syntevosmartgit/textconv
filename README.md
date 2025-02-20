@@ -83,6 +83,12 @@ Alternatively, you can achieve the same configuration using the Git CLI:
 git config set diff.json.textconv 'python -m json.tool'
 ```
 
+We also offer a version that works with SmartGit, making it ideal for computers without Python installed. The only drawback at the moment is that it doesn't work with Git Bash.
+
+```ini
+[diff "json"]
+    textconv = pwsh -c "& { param([string]$fileName) $data = Get-Content -Path $fileName; $data | ConvertFrom-Json | ConvertTo-Json -Depth 100 }"
+```
 
 ---
 
