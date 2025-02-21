@@ -90,6 +90,13 @@ We also offer a version that works with SmartGit, making it ideal for computers 
     textconv = pwsh -c "& { param([string]$fileName) $data = Get-Content -Path $fileName; $data | ConvertFrom-Json | ConvertTo-Json -Depth 100 }"
 ```
 
+To format JSON using the Bash the best way is to install "jq" and restart so the jq command is available everywhere in your shell/system. (https://jqlang.org/download/)
+
+```ini
+[diff "json"]
+    textconv = bash -c 'jq . \"$0\" -'
+```
+
 ---
 
 ## Example `.gitattributes` Configuration
